@@ -113,12 +113,18 @@ heroku version
 # Login and either add a SSH key or make a new one (may need to specify path when adding)
 heroku login
 ssh-keygen -t rsa -C "Heroku ssh key for our Luber"
-heroku keys:add
+heroku keys:add <key name></key>
 ```
 
 4. From your local Luber directory, create a heroku app and deploy it to heroku
 ```sh
 heroku create
+
+# Remove any previous deployments of this app and replace it with the new git hook if the hooks don't match
+git remote -v
+git remote rm heroku
+git remote add heroku git@heroku.com:<new hook ID>.git
+
 git push heroku master
 # If you are pushing a branch other than master to heroku master, use:
 # git push heroku other-branch:master
