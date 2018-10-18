@@ -152,9 +152,9 @@ heroku open
 # Locally
 heroku pg:reset DATABASE_URL
 
-# Remotely on Heroku, give it a minute to finish the previous command
-rails db:migrate
-rails db:seed
+# Give it a minute to finish the previous command
+heroku run rails db:migrate
+heroku run rails db:seed
 ```
 
 ## Deploying to AWS Elastic Beanstalk
